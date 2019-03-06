@@ -66,10 +66,6 @@ if (!isset($page))
                 <?php
                   }
                 ?>
-                <form class="form-inline mt-2 mt-md-0">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-cyan my-2 my-sm-0" type="submit"><i class="fa fa-search" style="font-size:24px"></i></button>
-                </form>
             </div>
         </nav>
     </header>
