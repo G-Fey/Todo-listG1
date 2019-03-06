@@ -1,3 +1,13 @@
+<?php
+try{
+$bdd = New PDO("mysql:host=localhost;dbname=todolistg1;charset=utf8", "root", "" ,array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+}
+catch(Exception $e)
+{
+        die('Erreur : '.$e->getMessage());
+}
+?> 
+
 <!DOCTYPE html>
 <html lang="fr" class="h-100">
 <head>
@@ -33,33 +43,33 @@
                             </div>
                         </div>
                         <div class="card-body">
-                            <form method="POST" action="todolist.php">
+                            <form method="POST" action="inscription_post.php" id="form-inscription">
                                 <div class="input-group form-group">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="fa fa-user"></i></span>
                                     </div>
-                                    <input type="text" class="form-control" placeholder="pseudo" required>
+                                    <input type="text" class="form-control" name="ajout_pseudo" placeholder="pseudo" required>
                                 </div>
                                 <div class="input-group form-group">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="fa fa-envelope"></i></span>
                                     </div>
-                                    <input type="text" class="form-control" placeholder="email" required>
+                                    <input type="text" class="form-control" name="ajout_email" placeholder="email" required>
                                 </div>
                                 <div class="input-group form-group">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="fa fa-key"></i></span>
                                     </div>
-                                    <input type="password" class="form-control" placeholder="mot de passe" required>
+                                    <input type="password" class="form-control" name="ajout_mdp" placeholder="mot de passe" required>
                                 </div>
                                 <div class="input-group form-group">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="fa fa-key"></i></span>
                                     </div>
-                                    <input type="password" class="form-control" placeholder="confirmation du mot de passe" required>
+                                    <input type="password" class="form-control" name="ajout_mdp2" placeholder="confirmation du mot de passe" required>
                                 </div>
                                 <div class="form-group">
-                                    <input type="submit" value="Login" class="btn float-right login_btn">
+                                    <input type="submit" value="Login" class="btn float-right login_btn" name="form_inscription">
                                 </div>
                             </form>
                         </div>
