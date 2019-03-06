@@ -1,3 +1,13 @@
+<?php
+try{
+$bdd = New PDO("mysql:host=localhost;dbname=todolistg1;charset=utf8", "root", "" ,array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+}
+catch(Exception $e)
+{
+        die('Erreur : '.$e->getMessage());
+}
+?> 
+
 <!DOCTYPE html>
 <html lang="fr" class="h-100">
 <head>

@@ -1,4 +1,12 @@
 <?php
+try{
+    $bdd = New PDO("mysql:host=localhost;dbname=todolistg1;charset=utf8", "root", "" ,array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+    }
+    catch(Exception $e)
+    {
+            die('Erreur : '.$e->getMessage());
+    }
+
     if (isset($_POST['form_inscription']))
     {
         $pseudo = htmlspecialchars($_POST['ajout_pseudo']);
@@ -9,20 +17,20 @@
         if (!empty($pseudo) AND !empty($email) AND !empty($mdp) AND !empty($mdp2))
         {
             //verif mail valide
-            if(filter_var($email), FILTER_VALIDATE_EMAIL)
+            if(filter_var($email))
             {
                 //vérification si l'email existe
-                $reqemail = $bdd -> prepare('SELECT * FROM utilisateurs where mail = ?');
+                $reqemail = $bdd -> prepare('SELECT * FROM utilisateurs where email = ?');
                 $reqemail -> execute(array($email));
-                $emailexist = $reqmail -> rowcount();
+                $emailexist = $reqemail -> rowcount();
 
-                if ($mailexist == 0)
+                if ($emailexist == 0)
                 {
                     //verif les 2 mdp identiques
                     if ($mdp == $mdp2)
                     {
-                        $insertmbr = $bdd -> prepare('INSERT INTO utilisateurs (pseudo, email, mdp ) VALUES (?, ?, ?)');
-                        $insertmbr ->execute(array($pseudo, $email, $mdp));
+                        $insertmbr = $bdd -> prepare('INSERT INTO utilisateurs (email, mot_de_passe, pseudo ) VALUES (?, ?, ?)');
+                        $insertmbr ->execute(array($email, $mdp, $pseudo));
                         echo "Votre compte a bien été crée";
                     }
 
