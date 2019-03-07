@@ -36,7 +36,7 @@ if (!isset($page))
                         <a class="nav-link" href="#">Contact <?php echo (($page == 'contact')? '<span class="sr-only">(current)</span>' : ''); ?></a>
                     </li>
                     <li class="nav-item <?php echo (($page == 'apropos')? 'active' : ''); ?>">
-                        <a class="nav-link" href="#">A propos <?php echo (($page == 'apropos')? '<span class="sr-only">(current)</span>' : ''); ?></a>
+                        <a class="nav-link" href="a_propos.php">A propos <?php echo (($page == 'apropos')? '<span class="sr-only">(current)</span>' : ''); ?></a>
                     </li>
                 </ul>
 
